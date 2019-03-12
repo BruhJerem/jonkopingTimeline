@@ -31,17 +31,15 @@ function drawChartAutumn() {
   var now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
   var left = date(4, 9, 2018);
   var autumnData = [
-    [ 'Jonköping', 'Now', now, now, { type: 'now' } ],	
+	  [ 'Jonköping', 'Now', now, now, { type: 'now' } ],	
+	['Introduction week', 'Introduction week', start(19, 8, 2019), end(25, 8, 2019)],
 	
-	['Study period', 'Study period 3', start(13, 1, 2020), end(13, 3, 2020)],
-	['Exam period', 'Exam period 3', start(14, 3, 2020), end(22, 3, 2020)],
-	//['Re-exam', 'Re-exam 3', start(8, 2, 2020), end(16, 2, 2020)],
+	['Study period', 'Study period 1', start(26, 8, 2019), end(11, 10, 2019)],
+	['Exam period', 'Exam period 1', start(12, 10, 2019), end(20, 10, 2019)],
 	
-	['Study period', 'Study period 4', start(23, 3, 2020), end(20, 5, 2020)],
-	['Exam period', 'Exam period 4', start(23, 5, 2020), end(31, 5, 2020)],
-	['Re-exam', 'Re-exam 4', start(1, 6, 2020), end(7, 6, 2020)],
- 
-    
+	['Study period', 'Study period 2', start(21, 10, 2019), end(6, 12, 2019)],
+	['Exam period', 'Exam period 2', start(9, 12, 2019), end(17, 12, 2019)],
+	['Re-exam', 'Re-exam', start(4, 1, 2020), end(12, 1, 2020)],    
   ];
 
   var formatted = autumnData.slice();
@@ -103,16 +101,15 @@ function drawChartSpring() {
   var left = date(4, 9, 2018);
   var springData = [
     [ 'Jonköping', 'Now', now, now, { type: 'now' } ],	
-	['Introduction week', 'Introduction week', start(19, 8, 2019), end(25, 8, 2019)],
 	
-	['Study period', 'Study period 1', start(26, 8, 2019), end(11, 10, 2019)],
-	['Exam period', 'Exam period 1', start(12, 10, 2019), end(20, 10, 2019)],
+	['Study period', 'Study period 3', start(13, 1, 2020), end(13, 3, 2020)],
+	['Exam period', 'Exam period 3', start(14, 3, 2020), end(22, 3, 2020)],
+	//['Re-exam', 'Re-exam 3', start(8, 2, 2020), end(16, 2, 2020)],
 	
-	['Study period', 'Study period 2', start(21, 10, 2019), end(6, 12, 2019)],
-	['Exam period', 'Exam period 2', start(9, 12, 2019), end(17, 12, 2019)],
-	['Re-exam', 'Re-exam', start(4, 1, 2020), end(12, 1, 2020)],
+	['Study period', 'Study period 4', start(23, 3, 2020), end(20, 5, 2020)],
+	['Exam period', 'Exam period 4', start(23, 5, 2020), end(31, 5, 2020)],
+	['Re-exam', 'Re-exam 4', start(1, 6, 2020), end(7, 6, 2020)],
  
-    
   ];
 
   var formatted = springData.slice();
