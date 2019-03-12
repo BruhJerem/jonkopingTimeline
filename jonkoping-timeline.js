@@ -31,7 +31,7 @@ function drawChartAutumn() {
   var now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
   var left = date(4, 9, 2018);
   var autumnData = [
-    //[ '\0', 'Now', now, now, { type: 'now' } ],	
+    [ 'Jonköping', 'Now', now, now, { type: 'now' } ],	
 	
 	['Study period', 'Study period 3', start(13, 1, 2020), end(13, 3, 2020)],
 	['Exam period', 'Exam period 3', start(14, 3, 2020), end(22, 3, 2020)],
@@ -102,7 +102,7 @@ function drawChartSpring() {
   var now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
   var left = date(4, 9, 2018);
   var springData = [
-    //[ '\0', 'Now', now, now, { type: 'now' } ],	
+    [ 'Jonköping', 'Now', now, now, { type: 'now' } ],	
 	['Introduction week', 'Introduction week', start(19, 8, 2019), end(25, 8, 2019)],
 	
 	['Study period', 'Study period 1', start(26, 8, 2019), end(11, 10, 2019)],
