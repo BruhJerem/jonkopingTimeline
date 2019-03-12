@@ -1,5 +1,6 @@
 google.charts.load("current", {packages:["timeline"]});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChartSpring);
+google.charts.setOnLoadCallback(drawChartAutumn);
 var today = new Date();
 
 function date(day, month, year)
@@ -19,8 +20,8 @@ function end(day, month, year)
   return d;
 }
 
-function drawChart() {
-  var container = document.getElementById('timeline-container');
+function drawChartAutumn() {
+  var container = document.getElementById('timeline-container-autumn');
   var chart = new google.visualization.Timeline(container);
   var dataTable = new google.visualization.DataTable();
   dataTable.addColumn({ type: 'string', id: 'Module' })
@@ -29,51 +30,21 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'End' });
   var now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
   var left = date(4, 9, 2018);
-  var data = [
-    [ '\0', 'Now', now, now, { type: 'now' } ],
-
-	  ['Moonshot (3 crédits)', 'Moonshot', start(3, 9, 2018), end(13, 9, 2018)],
+  var autumnData = [
+    //[ '\0', 'Now', now, now, { type: 'now' } ],	
+	
+	['Study period', 'Study period 3', start(13, 1, 2020), end(13, 3, 2020)],
+	['Exam period', 'Exam period 3', start(14, 3, 2020), end(22, 3, 2020)],
+	//['Re-exam', 'Re-exam 3', start(8, 2, 2020), end(16, 2, 2020)],
+	
+	['Study period', 'Study period 4', start(23, 3, 2020), end(20, 5, 2020)],
+	['Exam period', 'Exam period 4', start(23, 5, 2020), end(31, 5, 2020)],
+	['Re-exam', 'Re-exam 4', start(1, 6, 2020), end(7, 6, 2020)],
  
-    [ 'Canvas & Proto (2 crédits)', 'BMC', start(22, 10, 2018), end(2, 12, 2018) ],
-
-    [ 'Accelerator (3 crédits)', 'Forward', start(3, 12, 2018), end(14, 12, 2018) ],
-
-    [ 'EIP Validation (1 crédit)', 'EIP - Choix du sujet', start(3, 9, 2018), end(29, 1, 2019) ],
-
-    [ 'Part-Time Job (6 crédits)', 'Part-time internship', start(17, 9, 2018), end(10, 3, 2019) ],
-
-    [ 'Écrits Professionnels (2 crédits)', 'Avocat du diable', start(17, 9, 2018), end(7, 10, 2018) ],
-    [ 'Écrits Professionnels (2 crédits)', '3 emails', start(8, 10, 2018), end(28, 10, 2018) ],
-    [ 'Écrits Professionnels (2 crédits)', 'Mémo professionnel', start(29, 10, 2018), end(18, 11, 2018) ],
-    [ 'Écrits Professionnels (2 crédits)', 'Informer: Le magazine du geek', start(12, 11, 2018), end(13, 1, 2019) ],
-
-    [ 'Mathematics (3 crédits)', '301dannon', start(17, 9, 2018), end(30, 9, 2018) ],
-    [ 'Mathematics (3 crédits)', '302separation', start(1, 10, 2018), end(14, 10, 2018) ],
-    [ 'Mathematics (3 crédits)', '303make', start(15, 10, 2018), end(28, 10, 2018) ],
-    [ 'Mathematics (3 crédits)', '304pacman', start(29, 10, 2018), end(11, 11, 2018) ],
-    [ 'Mathematics (3 crédits)', '305construction', start(12, 11, 2018), end(25, 11, 2018) ],
-    [ 'Mathematics (3 crédits)', '306radiator', start(26, 11, 2018), end(23, 12, 2018) ],
-    [ 'Mathematics (3 crédits)', '307multigrains', start(24, 12, 2018), end(13, 1, 2019) ],
-    [ 'Mathematics (3 crédits)', '308reedpipes', start(14, 1, 2019), end(27, 1, 2019) ],
-    [ 'Mathematics (3 crédits)', '309pollution', start(28, 1, 2019), end(10, 2, 2019) ],
-
-    [ 'Security - Cryptography (2 crédits)', 'CAESAR', start(17, 9, 2018), end(30, 9, 2018) ],
-    [ 'Security - Cryptography (2 crédits)', 'BTTF - CAESAR', start(5, 11, 2018), end(11, 11, 2018) ],
-
-    [ 'Application Development (10 crédits)', 'Dashboard - 2 crédits', start(1, 10, 2018), end(21, 10, 2018) ],
     
-    [ 'Application Development (10 crédits)', 'Epicture - 2 crédits', start(29, 10, 2018), end(18, 11, 2018) ],
-    [ 'Application Development (10 crédits)', 'AREA - 6 crédits', start(14, 1, 2019), end(10, 3, 2019) ],
-
-    [ 'Artificial Intelligence (2 crédits)', 'Gomoku', start(8, 10, 2018), end(28, 10, 2018) ],
-    [ 'Artificial Intelligence (2 crédits)', 'BTTF - Gomoku', start(5, 11, 2018), end(11, 11, 2018) ],
-    [ 'Artificial Intelligence (2 crédits)', 'BTTF2 - Gomoku', start(17, 12, 2018), end(30, 12, 2018) ],
-
-    [ 'Security Web (2 crédits)', 'Shodan', start(28, 1, 2019), end(3, 2, 2019) ],
-
   ];
 
-  var formatted = data.slice();
+  var formatted = autumnData.slice();
   for (var i = 0; i < formatted.length; i++) {
     if (formatted[i].length > 4)
       formatted[i] = formatted[i].slice(0, 4);
@@ -87,11 +58,11 @@ function drawChart() {
     }
   });
 
-  nowLine('timeline-container');
-  $("#timeline-container rect[width=3]").hide();
+  nowLine('timeline-container-autumn');
+  $("#timeline-container-autumn rect[width=3]").hide();
 
   google.visualization.events.addListener(chart, 'onmouseover', function(obj){
-    var row = data[obj.row];
+    var row = autumnData[obj.row];
 
     if (row.length > 4) {
       if (row[4].type && (row[4].type == 'now' || row[4].type == 'separator')) {
@@ -99,17 +70,88 @@ function drawChart() {
       }
     }
 
-    nowLine('timeline-container');
-    $("#timeline-container rect[width=3]").hide();
+    nowLine('timeline-container-autumn');
+    $("#timeline-container-autumn rect[width=3]").hide();
   })
 
   google.visualization.events.addListener(chart, 'onmouseout', function(obj){
-    nowLine('timeline-container');
-    $("#timeline-container rect[width=3]").hide();
+    nowLine('timeline-container-autumn');
+    $("#timeline-container-autumn rect[width=3]").hide();
   })
 
   google.visualization.events.addListener(chart, 'select', function(){
-    var row = data[chart.getSelection()[0].row];
+    var row = autumnData[chart.getSelection()[0].row];
+
+    if (row.length > 4) {
+      if (row[4].url) {
+        var win = window.open(row[4].url, '_blank');
+        win.focus();
+      }
+    }
+  })
+}
+
+function drawChartSpring() {
+  var container = document.getElementById('timeline-container-spring');
+  var chart = new google.visualization.Timeline(container);
+  var dataTable = new google.visualization.DataTable();
+  dataTable.addColumn({ type: 'string', id: 'Module' })
+  dataTable.addColumn({ type: 'string', id: 'Project' });
+  dataTable.addColumn({ type: 'date', id: 'Start' });
+  dataTable.addColumn({ type: 'date', id: 'End' });
+  var now = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  var left = date(4, 9, 2018);
+  var springData = [
+    //[ '\0', 'Now', now, now, { type: 'now' } ],	
+	['Introduction week', 'Introduction week', start(19, 8, 2019), end(25, 8, 2019)],
+	
+	['Study period', 'Study period 1', start(26, 8, 2019), end(11, 10, 2019)],
+	['Exam period', 'Exam period 1', start(12, 10, 2019), end(20, 10, 2019)],
+	
+	['Study period', 'Study period 2', start(21, 10, 2019), end(6, 12, 2019)],
+	['Exam period', 'Exam period 2', start(9, 12, 2019), end(17, 12, 2019)],
+	['Re-exam', 'Re-exam', start(4, 1, 2020), end(12, 1, 2020)],
+ 
+    
+  ];
+
+  var formatted = springData.slice();
+  for (var i = 0; i < formatted.length; i++) {
+    if (formatted[i].length > 4)
+      formatted[i] = formatted[i].slice(0, 4);
+  }
+  dataTable.addRows(formatted);
+
+
+  chart.draw(dataTable, {
+    timeline: {
+      colorByRowLabel: true
+    }
+  });
+
+  nowLine('timeline-container-spring');
+  $("#timeline-container-spring rect[width=3]").hide();
+
+  google.visualization.events.addListener(chart, 'onmouseover', function(obj){
+    var row = springData[obj.row];
+
+    if (row.length > 4) {
+      if (row[4].type && (row[4].type == 'now' || row[4].type == 'separator')) {
+        $('.google-visualization-tooltip').css('display', 'none');
+      }
+    }
+
+    nowLine('timeline-container-spring');
+    $("#timeline-container-spring rect[width=3]").hide();
+  })
+
+  google.visualization.events.addListener(chart, 'onmouseout', function(obj){
+    nowLine('timeline-container-spring');
+    $("#timeline-container-spring rect[width=3]").hide();
+  })
+
+  google.visualization.events.addListener(chart, 'select', function(){
+    var row = springData[chart.getSelection()[0].row];
 
     if (row.length > 4) {
       if (row[4].url) {
@@ -148,7 +190,7 @@ function nowLine(div) {
 }
 
 $(document).ready(function(){
-  $.getJSON("https://api.github.com/repos/BruhJerem/jonk-pingTimeline/commits", function(json){
+  $.getJSON("https://api.github.com/repos/BruhJerem/jonkopingTimeline/commits", function(json){
     var msg, el, date;
 
     $("#changelog-container").empty();
